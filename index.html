@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papá Gamer Mex — El medio gamer de las familias mexicanas</title>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,800;0,900;1,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan:        #00E5FF;
+    --cyan-dim:    rgba(0,229,255,0.15);
+    --cyan-border: rgba(0,229,255,0.3);
+    --purple:      #7B5BC4;
+    --purple-dim:  rgba(123,91,196,0.18);
+    --teal:        #2EBDBD;
+    --teal-dim:    rgba(46,189,189,0.15);
+    --red:         #E8202A;
+    --red-dim:     rgba(232,32,42,0.15);
+    --skin:        #C8874E;
+    --black:       #000000;
+    --bg:          #080C12;
+    --bg2:         #0D1220;
+    --bg3:         #141928;
+    --bg4:         #1A2133;
+    --text:        #EAF0FF;
+    --text-muted:  #7A88AA;
+    --text-dim:    #445066;
+    --card-border: rgba(0,229,255,0.08);
+    --white:       #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(8,12,18,0.96);
+    border-bottom: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    height: 66px;
+    display: flex; align-items: center;
+    padding: 0 2rem;
+    gap: 2rem;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .logo-circle {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--teal) 100%);
+    box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0,229,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    border: 2px solid var(--cyan);
+    overflow: hidden;
+  }
+  .logo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .logo-text {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900; font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo-text span { color: var(--cyan); }
+  nav { display: flex; gap: 0.2rem; align-items: center; flex: 1; }
+  nav a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 0.82rem; font-weight: 700;
+    padding: 0.4rem 0.8rem; border-radius: 6px;
+    transition: all 0.2s; letter-spacing: 0.02em; white-space: nowrap;
+  }
+  nav a:hover { color: var(--cyan); background: var(--cyan-dim); }
+  .nav-cta {
+    margin-left: auto;
+    background: var(--cyan) !important;
+    color: var(--black) !important;
+    padding: 0.4rem 1.1rem !important;
+    border-radius: 6px; font-weight: 800 !important;
+  }
+  .nav-cta:hover { opacity: 0.85; background: var(--cyan) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 620px;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,12,18,0.3) 0%, var(--bg) 100%),
+      linear-gradient(90deg, rgba(8,12,18,0.85) 45%, rgba(8,12,18,0.2) 100%),
+      url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1400&q=80') center/cover;
+  }
+  .hero-glow-left {
+    position: absolute; top: 0; left: -200px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(123,91,196,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow-right {
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    max-width: 1200px; margin: 0 auto;
+    padding: 7rem 2rem 4.5rem;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    border: 1px solid var(--cyan-border);
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: blink 1.4s infinite; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+  h1.hero-title {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    max-width: 700px;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+  h1.hero-title em { color: var(--cyan); font-style: normal; }
+  h1.hero-title strong { color: var(--teal); font-style: normal; }
+  .hero-sub {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 520px; line-height: 1.75;
+    margin-bottom: 2.25rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-cyan {
+    background: var(--cyan); color: var(--black);
+    padding: 0.8rem 1.9rem; border-radius: 8px;
+    font-weight: 800; font-size: 0.88rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    font-family: 'Exo 2', sans-serif;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 0 20px rgba(0,229,255,0.35);
+    display: inline-block;
+  }
+  .btn-cyan:hover { opacity: 0.85; transform: translateY(-2px); }
+  .btn-ghost {
+    border: 1px solid rgba(0,229,255,0.3);
+    color: var(--cyan); padding: 0.8rem 1.9rem;
+    border-radius: 8px; font-weight: 700;
+    font-size: 0.88rem; text-decoration: none;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { background: var(--cyan-dim); }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .stat-val {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900; font-size: 2rem;
+    color: var(--white); line-height: 1;
+  }
+  .stat-val em { color: var(--cyan); font-style: normal; }
+  .stat-lbl { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 3px; }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: linear-gradient(90deg, var(--purple), var(--teal));
+    overflow: hidden; display: flex; height: 38px; align-items: center;
+  }
+  .ticker-tag {
+    background: rgba(0,0,0,0.35); color: var(--white);
+    font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0 1rem; height: 100%;
+    display: flex; align-items: center;
+    flex-shrink: 0; white-space: nowrap;
+  }
+  .ticker-scroll {
+    display: flex; gap: 2.5rem;
+    animation: marquee 32s linear infinite;
+    white-space: nowrap;
+    font-size: 0.78rem; font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    padding-left: 2rem;
+  }
+  @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .ti::before { content: '◆ '; font-size: 0.5rem; opacity: 0.7; }
+
+  /* ── QUICK CATS ── */
+  .cats-bar { background: var(--bg2); border-bottom: 1px solid var(--card-border); }
+  .cats-inner { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .cat-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--bg3); border: 1px solid var(--card-border);
+    border-radius: 20px; padding: 0.4rem 1rem;
+    font-size: 0.8rem; font-weight: 700;
+    color: var(--text-muted); text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cat-btn:hover { border-color: var(--cyan-border); color: var(--cyan); background: var(--cyan-dim); }
+  .cat-btn span:first-child { font-size: 14px; }
+
+  /* ── SECTION ── */
+  .section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+  .sec-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--card-border); }
+  .sec-title {
+    font-family: 'Exo 2', sans-serif; font-weight: 800;
+    font-size: 1.25rem; color: var(--white);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-title::before { content:''; width:4px; height:20px; border-radius:2px; background:linear-gradient(180deg,var(--cyan),var(--purple)); display:block; }
+  .see-all { font-size: 0.78rem; color: var(--cyan); text-decoration: none; font-weight: 700; letter-spacing: 0.04em; }
+  .see-all:hover { text-decoration: underline; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg2); border: 1px solid var(--card-border);
+    border-radius: 12px; overflow: hidden;
+    text-decoration: none; color: inherit; display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: var(--cyan-border); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,229,255,0.08); }
+  .card-img {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--bg3); position: relative;
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+  }
+  .card-img img { width:100%; height:100%; object-fit:cover; }
+  .cat-tag {
+    position: absolute; top: 10px; left: 10px;
+    font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .tag-cyan { background: var(--cyan); color: var(--black); }
+  .tag-purple { background: var(--purple); color: var(--white); }
+  .tag-red { background: var(--red); color: var(--white); }
+  .tag-teal { background: var(--teal); color: var(--black); }
+  .tag-skin { background: var(--skin); color: var(--white); }
+  .card-body { padding: 1.1rem 1.15rem; }
+  .card-title {
+    font-family: 'Exo 2', sans-serif; font-weight: 700;
+    font-size: 0.97rem; line-height: 1.35;
+    color: var(--white); margin-bottom: 0.55rem;
+  }
+  .card-meta { font-size: 0.73rem; color: var(--text-dim); display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+  /* ── FEATURED GRID ── */
+  .feat-grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 1.25rem; }
+  .feat-main { grid-row: 1/3; }
+  .feat-main .card-img { aspect-ratio: 4/3; }
+  .feat-main .card-title { font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .feat-main .card-body { padding: 1.4rem; }
+  .feat-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem; }
+
+  /* ── RESEÑAS ── */
+  .rev-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; }
+  .score-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.75rem; }
+  .score-num {
+    font-family: 'Exo 2', sans-serif; font-weight: 900;
+    font-size: 1.15rem; width: 46px; height: 46px;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .s10 { background: var(--cyan); color: var(--black); }
+  .s9  { background: #22d17b; color: #052a16; }
+  .s8  { background: #7ecb56; color: #1a3010; }
+  .s7  { background: #ffd54f; color: #3a2c00; }
+  .bars { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .bar { height: 3px; border-radius: 2px; background: var(--bg4); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--purple), var(--cyan)); }
+  .bar-lbl { font-size: 0.6rem; color: var(--text-dim); }
+
+  /* ── PARA PADRES ── */
+  .padres-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
+  .tips { display: flex; flex-direction: column; gap: 0.9rem; }
+  .tip {
+    display: flex; gap: 1rem; align-items: flex-start;
+    background: var(--bg2); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 1rem 1.1rem;
+    text-decoration: none; color: inherit;
+    transition: border-color 0.2s;
+  }
+  .tip:hover { border-color: var(--cyan-border); }
+  .tip-ico {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .ico-c { background: var(--cyan-dim); border: 1px solid var(--cyan-border); }
+  .ico-p { background: var(--purple-dim); border: 1px solid rgba(123,91,196,0.3); }
+  .ico-t { background: var(--teal-dim); border: 1px solid rgba(46,189,189,0.3); }
+  .ico-r { background: var(--red-dim); border: 1px solid rgba(232,32,42,0.3); }
+  .tip h4 { font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.9rem; color:var(--white); margin-bottom:4px; }
+  .tip p { font-size:0.8rem; color:var(--text-muted); line-height:1.55; }
+
+  /* ── PERFIL BOX ── */
+  .perfil-box {
+    background: var(--bg2); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 1.75rem 1.5rem;
+    text-align: center; position: sticky; top: 80px;
+  }
+  .perfil-logo {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--teal));
+    border: 3px solid var(--cyan);
+    box-shadow: 0 0 20px rgba(0,229,255,0.4);
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .perfil-logo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+  .perfil-name {
+    font-family: 'Exo 2', sans-serif; font-weight: 900;
+    font-size: 1rem; color: var(--cyan); letter-spacing: 0.05em;
+    margin-bottom: 3px;
+  }
+  .perfil-role { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .perfil-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 1rem; }
+  .ptag {
+    font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 20px;
+  }
+  .ptag-c { background: var(--cyan-dim); color: var(--cyan); border: 1px solid var(--cyan-border); }
+  .ptag-p { background: var(--purple-dim); color: #b49ef8; border: 1px solid rgba(123,91,196,0.35); }
+  .ptag-t { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(46,189,189,0.3); }
+  .ptag-r { background: var(--red-dim); color: #f07070; border: 1px solid rgba(232,32,42,0.3); }
+  .perfil-bio { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; }
+  .perfil-contact { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--card-border); font-size: 0.8rem; }
+  .perfil-contact a { color: var(--cyan); text-decoration: none; }
+  .perfil-contact p { color: var(--text-dim); margin-top: 4px; font-size: 0.75rem; }
+
+  /* ── ESPORTS ── */
+  .esports-wrap { background: var(--bg2); }
+  .esports-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+  .esport-card {
+    background: var(--bg3); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 1.75rem 1.5rem;
+    text-align: center; transition: border-color 0.2s, transform 0.2s;
+  }
+  .esport-card:hover { border-color: var(--cyan-border); transform: translateY(-3px); }
+  .esport-ico { font-size: 2.75rem; margin-bottom: 0.75rem; }
+  .esport-card h4 { font-family:'Exo 2',sans-serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:0.4rem; }
+  .esport-card p { font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
+  .e-badge {
+    display: inline-block; margin-top: 1rem;
+    font-size: 0.62rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+  }
+  .eb-live { background: rgba(34,209,123,0.1); color: #22d17b; border: 1px solid rgba(34,209,123,0.3); }
+  .eb-soon { background: var(--purple-dim); color: #b49ef8; border: 1px solid rgba(123,91,196,0.3); }
+  .eb-info { background: var(--cyan-dim); color: var(--cyan); border: 1px solid var(--cyan-border); }
+
+  /* ── PODCAST ── */
+  .pod-featured {
+    background: var(--bg2); border: 1px solid var(--card-border);
+    border-radius: 12px; padding: 1.5rem;
+    display: flex; gap: 1.5rem; align-items: center;
+    margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  .pod-cover {
+    width: 80px; height: 80px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--purple), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem; flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0,229,255,0.2);
+    border: 2px solid var(--cyan-border);
+  }
+  .pod-info { flex: 1; min-width: 200px; }
+  .pod-ep { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 4px; }
+  .pod-info h3 { font-family:'Exo 2',sans-serif; font-weight:700; font-size:1.05rem; color:var(--white); margin-bottom:4px; line-height:1.3; }
+  .pod-info p { font-size:0.82rem; color:var(--text-muted); line-height:1.5; }
+  .pod-play-btn {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: var(--cyan);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; cursor: pointer; flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(0,229,255,0.4);
+    transition: opacity 0.2s;
+  }
+  .pod-play-btn:hover { opacity: 0.8; }
+  .pod-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: none; }
+  .pod-row::-webkit-scrollbar { display: none; }
+  .pod-mini {
+    flex-shrink: 0; width: 210px;
+    background: var(--bg2); border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 1rem;
+    transition: border-color 0.2s;
+  }
+  .pod-mini:hover { border-color: var(--cyan-border); }
+  .pod-mini-art {
+    width: 100%; aspect-ratio: 1; border-radius: 8px;
+    background: linear-gradient(135deg, var(--bg3), var(--bg4));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; margin-bottom: 0.75rem;
+    border: 1px solid var(--card-border);
+  }
+  .pod-mini h4 { font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.83rem; color:var(--white); line-height:1.3; margin-bottom:3px; }
+  .pod-mini p { font-size:0.72rem; color:var(--text-dim); }
+  .mini-play { display:flex; align-items:center; gap:6px; margin-top:0.6rem; cursor:pointer; }
+  .mini-play-btn { width:26px; height:26px; border-radius:50%; background:var(--cyan); display:flex; align-items:center; justify-content:center; font-size:0.55rem; color:var(--black); }
+  .mini-play span { font-size:0.73rem; color:var(--cyan); font-weight:700; }
+
+  /* ── NEWSLETTER ── */
+  .nl-wrap {
+    background: var(--bg2);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    position: relative; overflow: hidden;
+  }
+  .nl-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 500px; height: 300px; border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(0,229,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .nl-inner { max-width: 580px; margin: 0 auto; padding: 4.5rem 2rem; text-align: center; position: relative; }
+  .nl-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .nl-inner h2 { font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.75rem; color:var(--white); margin-bottom:0.75rem; }
+  .nl-inner h2 span { color:var(--cyan); }
+  .nl-inner p { font-size:0.9rem; color:var(--text-muted); line-height:1.7; margin-bottom:2rem; }
+  .nl-form { display:flex; gap:0.75rem; max-width:420px; margin:0 auto; }
+  .nl-form input {
+    flex:1; background:var(--bg3); border:1px solid var(--card-border);
+    border-radius:8px; padding:0.75rem 1rem;
+    color:var(--white); font-family:'Nunito',sans-serif; font-size:0.9rem;
+    outline:none; transition:border-color 0.2s;
+  }
+  .nl-form input:focus { border-color: var(--cyan-border); }
+  .nl-form input::placeholder { color:var(--text-dim); }
+  .nl-form button {
+    background:var(--cyan); color:var(--black);
+    border:none; border-radius:8px; padding:0.75rem 1.5rem;
+    font-family:'Exo 2',sans-serif; font-weight:800; font-size:0.88rem;
+    cursor:pointer; transition:opacity 0.2s; white-space:nowrap;
+    box-shadow: 0 0 14px rgba(0,229,255,0.35);
+  }
+  .nl-form button:hover { opacity:0.85; }
+  .nl-note { font-size:0.72rem; color:var(--text-dim); margin-top:1rem; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg2); border-top: 1px solid var(--card-border); }
+  .footer-grid { max-width:1200px; margin:0 auto; padding:3.5rem 2rem 2rem; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:2rem; }
+  .ft-brand p { font-size:0.83rem; color:var(--text-muted); line-height:1.7; margin:0.75rem 0 1.25rem; }
+  .socials { display:flex; gap:0.6rem; }
+  .soc-btn {
+    width:36px; height:36px; border-radius:8px;
+    background:var(--bg3); border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none; color:var(--text-muted); font-size:0.85rem;
+    transition: all 0.2s;
+  }
+  .soc-btn:hover { border-color:var(--cyan-border); color:var(--cyan); background:var(--cyan-dim); }
+  .ft-col h5 { font-family:'Exo 2',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); margin-bottom:1rem; }
+  .ft-col ul { list-style:none; display:flex; flex-direction:column; gap:0.55rem; }
+  .ft-col a { font-size:0.83rem; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+  .ft-col a:hover { color:var(--cyan); }
+  .footer-bottom { border-top:1px solid var(--card-border); padding:1.25rem 2rem; display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto; font-size:0.75rem; color:var(--text-dim); flex-wrap:wrap; gap:0.5rem; }
+  .footer-bottom a { color:var(--cyan); text-decoration:none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .feat-grid { grid-template-columns:1fr 1fr; }
+    .feat-main { grid-column:1/3; grid-row:auto; }
+    .rev-grid { grid-template-columns:1fr 1fr; }
+    .esports-grid { grid-template-columns:1fr 1fr; }
+    .padres-layout { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    nav a:not(.nav-cta) { display:none; }
+  }
+  @media (max-width: 600px) {
+    .feat-grid, .rev-grid, .esports-grid { grid-template-columns:1fr; }
+    .feat-main { grid-column:auto; }
+    .footer-grid { grid-template-columns:1fr; }
+    .nl-form { flex-direction:column; }
+    .hero-stats { gap:1.5rem; }
+    .topbar { padding:0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="#" class="logo">
+    <div class="logo-circle">
+      <img src="https://i.imgur.com/Xa2iQEr.png" alt="Papá Gamer Mex Logo">
+    </div>
+    <div class="logo-text">PAPÁ GAMER <span>MEX</span></div>
+  </a>
+  <nav>
+    <a href="#noticias">Noticias</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#padres">Para Padres</a>
+    <a href="#esports">Esports</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#nosotros">Eduardo</a>
+    <a href="#newsletter" class="nav-cta">Newsletter</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="dot"></div> El medio gamer de las familias mexicanas</div>
+    <h1 class="hero-title">
+      Videojuegos para<br><em>toda la familia.</em><br><strong>Consejos para cada pantalla.</strong>
+    </h1>
+    <p class="hero-sub">
+      Reseñas honestas, noticias del mundo gamer, guías para papás y mamás, cobertura de esports y mucho más. Porque en casa también se puede jugar bien.
+    </p>
+    <div class="hero-btns">
+      <a href="#resenas" class="btn-cyan">Ver Reseñas</a>
+      <a href="#padres" class="btn-ghost">Tips para Padres</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-val">+<em>5</em></div><div class="stat-lbl">Años en el aire</div></div>
+      <div><div class="stat-val"><em>100%</em></div><div class="stat-lbl">Contenido familiar</div></div>
+      <div><div class="stat-val"><em>MX</em></div><div class="stat-lbl">Hecho en México</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-tag">Última hora</div>
+  <div style="overflow:hidden;flex:1;">
+    <div class="ticker-scroll">
+      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
+      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
+      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
+      <span class="ti">Fortnite presenta nuevo modo familia</span>
+      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
+      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
+      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
+      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
+      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
+      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
+      <span class="ti">Fortnite presenta nuevo modo familia</span>
+      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
+      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
+      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK CATS -->
+<div class="cats-bar">
+  <div class="cats-inner">
+    <a href="#" class="cat-btn"><span>🎮</span> Reseñas</a>
+    <a href="#" class="cat-btn"><span>👨‍👩‍👧</span> Para Padres</a>
+    <a href="#" class="cat-btn"><span>🏆</span> Esports</a>
+    <a href="#" class="cat-btn"><span>🎙️</span> Podcast</a>
+    <a href="#" class="cat-btn"><span>📖</span> Guías</a>
+    <a href="#" class="cat-btn"><span>🤖</span> IA &amp; Tecnología</a>
+    <a href="#" class="cat-btn"><span>🇲🇽</span> Noticias MX</a>
+  </div>
+</div>
+
+<!-- NOTICIAS DESTACADAS -->
+<section id="noticias">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Noticias Destacadas</h2>
+      <a href="#" class="see-all">Ver todas →</a>
+    </div>
+    <div class="feat-grid">
+      <a href="#" class="card feat-main">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80" alt="">
+          <span class="cat-tag tag-cyan">NOTICIAS</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title" style="font-size:1.4rem; margin-bottom:0.6rem;">Nintendo Switch 2 llega a México: fecha, precio y todo lo que necesitas saber antes de comprarla</h3>
+          <p class="feat-desc">La nueva consola de Nintendo promete un salto generacional. Analizamos si vale la pena la inversión para toda la familia y qué títulos de lanzamiento son ideales para jugar en casa.</p>
+          <div class="card-meta">
+            <span>🕐 Hace 2 horas</span>
+            <span>✍️ Eduardo Díaz</span>
+            <span>📖 5 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&q=80" alt="">
+          <span class="cat-tag tag-teal">GUÍAS</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Fortnite en familia: controles parentales paso a paso</h3>
+          <div class="card-meta"><span>🕐 Ayer</span><span>📖 3 min</span></div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=500&q=80" alt="">
+          <span class="cat-tag tag-purple">ESPORTS</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">México brilló en el torneo latinoamericano de League of Legends</h3>
+          <div class="card-meta"><span>🕐 Hace 3 días</span><span>📖 4 min</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas" style="background:var(--bg2);">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Reseñas</h2>
+      <a href="#" class="see-all">Ver todas →</a>
+    </div>
+    <div class="rev-grid">
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&q=80" alt=""><span class="cat-tag tag-red">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Call of Duty: Black Ops 6</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+              <div class="bar-lbl">Gameplay · Historia · Técnico</div>
+            </div>
+            <div class="score-num s9">9</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=400&q=80" alt=""><span class="cat-tag tag-teal">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">F1 25 — El mejor simulador de la parrilla</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:82%"></div></div>
+              <div class="bar-lbl">Realismo · Jugabilidad · Online</div>
+            </div>
+            <div class="score-num s8">8</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&q=80" alt=""><span class="cat-tag tag-cyan">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Mario Kart World — Juego del año familiar</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:96%"></div></div>
+              <div class="bar-lbl">Diversión · Multi · Rejugabilidad</div>
+            </div>
+            <div class="score-num s10" style="font-size:0.9rem;">9.5</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80" alt=""><span class="cat-tag tag-purple">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Hollow Knight: Silksong — La espera valió la pena</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:75%"></div></div>
+              <div class="bar-lbl">Arte · Historia · Mecánicas</div>
+            </div>
+            <div class="score-num s7" style="font-size:0.9rem;">7.5</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p style="margin-top:1rem; font-size:0.77rem; color:var(--text-dim); display:flex; align-items:center; gap:6px; background:var(--bg3); padding:0.65rem 1rem; border-radius:8px; border:1px solid var(--card-border);">
+      <span style="color:var(--cyan); font-size:14px;">ℹ</span>
+      Nuestras reseñas evalúan <strong style="color:var(--text-muted);">Gameplay · Historia · Gráficos · Sonido · Rejugabilidad</strong> y siempre indican si el juego es apto para toda la familia.
+    </p>
+  </div>
+</section>
+
+<!-- PARA PADRES -->
+<section id="padres">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Para Papás y Mamás</h2>
+      <a href="#" class="see-all">Ver todos →</a>
+    </div>
+    <div class="padres-layout">
+      <div class="tips">
+        <a href="#" class="tip">
+          <div class="tip-ico ico-c">🛡️</div>
+          <div>
+            <h4>Controles parentales: guía completa 2025</h4>
+            <p>PS5, Xbox, Switch y PC — aprende a configurar límites de tiempo, filtros de contenido y compras seguras en cada plataforma.</p>
+          </div>
+        </a>
+        <a href="#" class="tip">
+          <div class="tip-ico ico-p">⏰</div>
+          <div>
+            <h4>¿Cuánto tiempo de pantalla es sano para mi hijo?</h4>
+            <p>Recomendaciones basadas en estudios de desarrollo infantil según edad, desde 3 hasta 18 años. Guía práctica para el hogar.</p>
+          </div>
+        </a>
+        <a href="#" class="tip">
+          <div class="tip-ico ico-t">🤝</div>
+          <div>
+            <h4>Cómo jugar con tus hijos sin perderte en el intento</h4>
+            <p>Consejos para conectar con tus hijos a través del gaming, sin importar si eres un gamer veterano o llevas el control al revés.</p>
+          </div>
+        </a>
+        <a href="#" class="tip">
+          <div class="tip-ico ico-r">🎓</div>
+          <div>
+            <h4>Los mejores videojuegos educativos de 2025</h4>
+            <p>Selección de títulos que desarrollan matemáticas, idiomas, creatividad y pensamiento crítico de forma divertida.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- PERFIL EDUARDO -->
+      <div class="perfil-box" id="nosotros">
+        <div class="perfil-logo">
+          <img src="https://i.imgur.com/Xa2iQEr.png" alt="Papá Gamer Logo">
+        </div>
+        <div class="perfil-name">PAPÁ GAMER MEX</div>
+        <div class="perfil-role">Eduardo Díaz — Fundador &amp; Director</div>
+        <div class="perfil-tags">
+          <span class="ptag ptag-c">Gamer</span>
+          <span class="ptag ptag-p">Educación Digital</span>
+          <span class="ptag ptag-t">Esports</span>
+          <span class="ptag ptag-r">IA</span>
+          <span class="ptag ptag-c">Familia</span>
+          <span class="ptag ptag-p">Conferencista</span>
+        </div>
+        <p class="perfil-bio">
+          Periodista y publi-relacionista con más de una década en la industria gamer. Fundó Papá Gamer Mex en 2019 para conectar videojuegos y crianza positiva. Director General de la Academia Mexicana de Esports. Conferencista, consultor en IA y padre de 4 hijos.
+        </p>
+        <div class="perfil-contact">
+          <a href="mailto:elpapu@papagamermex.mx">elpapu@papagamermex.mx</a>
+          <p>@papagamermex · papagamermex.mx</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPORTS -->
+<section id="esports" class="esports-wrap">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Esports</h2>
+      <a href="#" class="see-all">Ver torneos →</a>
+    </div>
+    <div class="esports-grid">
+      <div class="esport-card">
+        <div class="esport-ico">🏎️</div>
+        <h4>Torneos F1 Papá Gamer</h4>
+        <p>Competencias presenciales de F1 organizadas en alianza con la Academia Mexicana de Esports. ¡Inscríbete!</p>
+        <span class="e-badge eb-soon">Próximamente</span>
+      </div>
+      <div class="esport-card">
+        <div class="esport-ico">🎮</div>
+        <h4>Cobertura Esports México</h4>
+        <p>Resultados, análisis y crónicas de la escena competitiva nacional. Liga MX Esports, torneos universitarios y más.</p>
+        <span class="e-badge eb-live">En vivo</span>
+      </div>
+      <div class="esport-card">
+        <div class="esport-ico">🏆</div>
+        <h4>Academia Mexicana de Esports</h4>
+        <p>Eduardo Díaz es socio fundador y Director General. Formamos a los próximos profesionales del ecosistema gamer de México.</p>
+        <span class="e-badge eb-info">Conoce más</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Podcast — Papá Gamer y Su Banda</h2>
+      <a href="#" class="see-all">Escuchar →</a>
+    </div>
+    <div class="pod-featured">
+      <div class="pod-cover">🎙️</div>
+      <div class="pod-info">
+        <div class="pod-ep">Episodio más reciente · Ep. 42</div>
+        <h3>Los mejores juegos para jugar en familia estas vacaciones</h3>
+        <p>Papá Gamer, Mike y Geo discuten sus picks favoritos. Opinión, cotorreo y análisis gamer en familia.</p>
+      </div>
+      <div style="text-align:center;">
+        <div class="pod-play-btn">▶</div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:4px;">52 min</div>
+      </div>
+    </div>
+    <div class="pod-row">
+      <div class="pod-mini"><div class="pod-mini-art">🎮</div><h4>Ep. 41 — ¿Son los esports un deporte de verdad?</h4><p>48 min · Hace 2 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">👨‍👩‍👦</div><h4>Ep. 40 — Crianza positiva en la era gamer</h4><p>55 min · Hace 3 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">🤖</div><h4>Ep. 39 — IA en los videojuegos del futuro</h4><p>61 min · Hace 1 mes</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">🏆</div><h4>Ep. 38 — Lo mejor del año gamer 2024</h4><p>74 min · Hace 2 meses</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div id="newsletter" class="nl-wrap">
+  <div class="nl-glow"></div>
+  <div class="nl-inner">
+    <div class="nl-icon">🎮</div>
+    <h2>Únete a <span>la banda</span></h2>
+    <p>Recibe las mejores noticias, reseñas y tips para familias gamers directamente en tu correo. Sin spam — solo contenido chido de Papá Gamer Mex.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="tu@correo.com">
+      <button type="button">Suscribirse</button>
+    </div>
+    <div class="nl-note">+5 años de contenido gamer familiar · papagamermex.mx · @papagamermex</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="ft-brand">
+      <a href="#" class="logo" style="margin-bottom:0.75rem;">
+        <div class="logo-circle"><img src="https://i.imgur.com/Xa2iQEr.png" alt="Logo"></div>
+        <div class="logo-text">PAPÁ GAMER <span>MEX</span></div>
+      </a>
+      <p>El medio gamer de las familias mexicanas. Noticias, reseñas, guías para padres y cobertura de esports desde la Ciudad de México para el mundo.</p>
+      <div class="socials">
+        <a class="soc-btn" href="#" title="YouTube">▶</a>
+        <a class="soc-btn" href="#" title="Instagram">◉</a>
+        <a class="soc-btn" href="#" title="TikTok">♪</a>
+        <a class="soc-btn" href="#" title="Twitter/X">✕</a>
+        <a class="soc-btn" href="#" title="Twitch">◈</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h5>Contenido</h5>
+      <ul>
+        <li><a href="#">Noticias</a></li>
+        <li><a href="#">Reseñas</a></li>
+        <li><a href="#">Guías</a></li>
+        <li><a href="#">Para Padres</a></li>
+        <li><a href="#">Esports</a></li>
+        <li><a href="#">IA &amp; Tecnología</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Podcast</h5>
+      <ul>
+        <li><a href="#">Todos los episodios</a></li>
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Amazon Music</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Nosotros</h5>
+      <ul>
+        <li><a href="#">¿Quiénes somos?</a></li>
+        <li><a href="#">Eduardo Díaz</a></li>
+        <li><a href="#">Academia de Esports</a></li>
+        <li><a href="#">Colaboraciones</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Aviso de Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Papá Gamer Mex — Todos los derechos reservados</span>
+    <span>Hecho con 🎮 en <a href="#">Ciudad de México</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
