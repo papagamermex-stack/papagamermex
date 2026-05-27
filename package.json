@@ -1,0 +1,11 @@
+{
+  "name": "papagamermex",
+  "version": "1.0.0",
+  "description": "Papá Gamer Mex - Static Site with 11ty",
+  "scripts": {
+    "build": "npx @11ty/eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

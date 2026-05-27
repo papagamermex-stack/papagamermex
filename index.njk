@@ -1,0 +1,298 @@
+---
+layout: base.njk
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="dot"></div> El medio gamer de las familias mexicanas</div>
+    <h1 class="hero-title">
+      Videojuegos para<br><em>toda la familia.</em><br><strong>Consejos para cada pantalla.</strong>
+    </h1>
+    <p class="hero-sub">
+      Reseñas honestas, noticias del mundo gamer, guías para papás y mamás, cobertura de esports y mucho más. Porque en casa también se puede jugar bien.
+    </p>
+    <div class="hero-btns">
+      <a href="#resenas" class="btn-cyan">Ver Reseñas</a>
+      <a href="#padres" class="btn-ghost">Tips para Padres</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-val">+<em>5</em></div><div class="stat-lbl">Años en el aire</div></div>
+      <div><div class="stat-val"><em>100%</em></div><div class="stat-lbl">Contenido familiar</div></div>
+      <div><div class="stat-val"><em>MX</em></div><div class="stat-lbl">Hecho en México</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-tag">Última hora</div>
+  <div style="overflow:hidden;flex:1;">
+    <div class="ticker-scroll">
+      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
+      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
+      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
+      <span class="ti">Fortnite presenta nuevo modo familia</span>
+      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
+      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
+      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
+      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
+      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
+      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
+      <span class="ti">Fortnite presenta nuevo modo familia</span>
+      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
+      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
+      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK CATS -->
+<div class="cats-bar">
+  <div class="cats-inner">
+    <a href="#" class="cat-btn"><span>🎮</span> Reseñas</a>
+    <a href="#" class="cat-btn"><span>👨‍👩‍👧</span> Para Padres</a>
+    <a href="#" class="cat-btn"><span>🏆</span> Esports</a>
+    <a href="#" class="cat-btn"><span>🎙️</span> Podcast</a>
+    <a href="#" class="cat-btn"><span>📖</span> Guías</a>
+    <a href="#" class="cat-btn"><span>🤖</span> IA &amp; Tecnología</a>
+    <a href="#" class="cat-btn"><span>🇲🇽</span> Noticias MX</a>
+  </div>
+</div>
+
+<!-- NOTICIAS DESTACADAS -->
+<section id="noticias">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Noticias Destacadas</h2>
+      <a href="/noticias" class="see-all">Ver todas →</a>
+    </div>
+    <div class="feat-grid">
+      {% set ultimas_noticias = collections.noticias | reverse %}
+      {% for post in ultimas_noticias.slice(0, 3) %}
+        {% if loop.first %}
+          <a href="{{ post.url }}" class="card feat-main">
+            <div class="card-img">
+              <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80' }}" alt="{{ post.data.title }}">
+              <span class="cat-tag tag-cyan">{{ post.data.category | default("NOTICIAS") | upper }}</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" style="font-size:1.4rem; margin-bottom:0.6rem;">{{ post.data.title }}</h3>
+              <p class="feat-desc">{{ post.templateContent | striptags | truncate(150) }}</p>
+              <div class="card-meta">
+                <span>🕐 {{ post.date | date("yyyy-MM-dd") }}</span>
+                <span>✍️ {{ post.data.author | default("Eduardo Díaz") }}</span>
+              </div>
+            </div>
+          </a>
+        {% else %}
+          <a href="{{ post.url }}" class="card">
+            <div class="card-img">
+              <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&q=80' }}" alt="{{ post.data.title }}">
+              <span class="cat-tag tag-teal">{{ post.data.category | default("NOTICIAS") | upper }}</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">{{ post.data.title }}</h3>
+              <div class="card-meta"><span>🕐 {{ post.date | date("yyyy-MM-dd") }}</span></div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="resenas" style="background:var(--bg2);">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Reseñas</h2>
+      <a href="#" class="see-all">Ver todas →</a>
+    </div>
+    <div class="rev-grid">
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&q=80" alt=""><span class="cat-tag tag-red">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Call of Duty: Black Ops 6</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+              <div class="bar-lbl">Gameplay · Historia · Técnico</div>
+            </div>
+            <div class="score-num s9">9</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=400&q=80" alt=""><span class="cat-tag tag-teal">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">F1 25 — El mejor simulador de la parrilla</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:82%"></div></div>
+              <div class="bar-lbl">Realismo · Jugabilidad · Online</div>
+            </div>
+            <div class="score-num s8">8</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&q=80" alt=""><span class="cat-tag tag-cyan">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Mario Kart World — Juego del año familiar</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:96%"></div></div>
+              <div class="bar-lbl">Diversión · Multi · Rejugabilidad</div>
+            </div>
+            <div class="score-num s10" style="font-size:0.9rem;">9.5</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80" alt=""><span class="cat-tag tag-purple">ANÁLISIS</span></div>
+        <div class="card-body">
+          <h3 class="card-title">Hollow Knight: Silksong — La espera valió la pena</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:75%"></div></div>
+              <div class="bar-lbl">Arte · Historia · Mecánicas</div>
+            </div>
+            <div class="score-num s7" style="font-size:0.9rem;">7.5</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p style="margin-top:1rem; font-size:0.77rem; color:var(--text-dim); display:flex; align-items:center; gap:6px; background:var(--bg3); padding:0.65rem 1rem; border-radius:8px; border:1px solid var(--card-border);">
+      <span style="color:var(--cyan); font-size:14px;">ℹ</span>
+      Nuestras reseñas evalúan <strong style="color:var(--text-muted);">Gameplay · Historia · Gráficos · Sonido · Rejugabilidad</strong> y siempre indican si el juego es apto para toda la familia.
+    </p>
+  </div>
+</section>
+
+<!-- PARA PADRES -->
+<section id="padres">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Para Papás y Mamás</h2>
+      <a href="#" class="see-all">Ver todos →</a>
+    </div>
+    <div class="padres-layout">
+      <div class="tips">
+        {% set ultimos_tips = collections.para_padres | reverse %}
+        {% for tip in ultimos_tips.slice(0, 4) %}
+        <a href="{{ tip.url }}" class="tip">
+          <div class="tip-ico {% if loop.index0 % 4 == 0 %}ico-c{% elif loop.index0 % 4 == 1 %}ico-p{% elif loop.index0 % 4 == 2 %}ico-t{% else %}ico-r{% endif %}">
+            {% if "Streaming" in tip.data.category or "App" in tip.data.title %}📱{% elif "Educativos" in tip.data.category %}🎓{% else %}🛡️{% endif %}
+          </div>
+          <div>
+            <h4>{{ tip.data.title }}</h4>
+            <p>{{ tip.templateContent | striptags | truncate(90) }}</p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      <!-- PERFIL EDUARDO -->
+      <div class="perfil-box" id="nosotros">
+        <div class="perfil-logo">
+          <img src="https://i.imgur.com/Xa2iQEr.png" alt="Papá Gamer Logo">
+        </div>
+        <div class="perfil-name">PAPÁ GAMER MEX</div>
+        <div class="perfil-role">Eduardo Díaz — Fundador &amp; Director</div>
+        <div class="perfil-tags">
+          <span class="ptag ptag-c">Gamer</span>
+          <span class="ptag ptag-p">Educación Digital</span>
+          <span class="ptag ptag-t">Esports</span>
+          <span class="ptag ptag-r">IA</span>
+          <span class="ptag ptag-c">Familia</span>
+          <span class="ptag ptag-p">Conferencista</span>
+        </div>
+        <p class="perfil-bio">
+          Periodista y publi-relacionista con más de una década en la industria gamer. Fundó Papá Gamer Mex en 2019 para conectar videojuegos y crianza positiva. Director General de la Academia Mexicana de Esports. Conferencista, consultor en IA y padre de 4 hijos.
+        </p>
+        <div class="perfil-contact">
+          <a href="mailto:elpapu@papagamermex.mx">elpapu@papagamermex.mx</a>
+          <p>@papagamermex · papagamermex.mx</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPORTS -->
+<section id="esports" class="esports-wrap">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Esports</h2>
+      <a href="#" class="see-all">Ver torneos →</a>
+    </div>
+    <div class="esports-grid">
+      <div class="esport-card">
+        <div class="esport-ico">🏎️</div>
+        <h4>Torneos F1 Papá Gamer</h4>
+        <p>Competencias presenciales de F1 organizadas en alianza con la Academia Mexicana de Esports. ¡Inscríbete!</p>
+        <span class="e-badge eb-soon">Próximamente</span>
+      </div>
+      <div class="esport-card">
+        <div class="esport-ico">🎮</div>
+        <h4>Cobertura Esports México</h4>
+        <p>Resultados, análisis y crónicas de la escena competitiva nacional. Liga MX Esports, torneos universitarios y más.</p>
+        <span class="e-badge eb-live">En vivo</span>
+      </div>
+      <div class="esport-card">
+        <div class="esport-ico">🏆</div>
+        <h4>Academia Mexicana de Esports</h4>
+        <p>Eduardo Díaz es socio fundador y Director General. Formamos a los próximos profesionales del ecosistema gamer de México.</p>
+        <span class="e-badge eb-info">Conoce más</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <div class="section">
+    <div class="sec-head">
+      <h2 class="sec-title">Podcast — Papá Gamer y Su Banda</h2>
+      <a href="#" class="see-all">Escuchar →</a>
+    </div>
+    <div class="pod-featured">
+      <div class="pod-cover">🎙️</div>
+      <div class="pod-info">
+        <div class="pod-ep">Episodio más reciente · Ep. 42</div>
+        <h3>Los mejores juegos para jugar en familia estas vacaciones</h3>
+        <p>Papá Gamer, Mike y Geo discuten sus picks favoritos. Opinión, cotorreo y análisis gamer en familia.</p>
+      </div>
+      <div style="text-align:center;">
+        <div class="pod-play-btn">▶</div>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:4px;">52 min</div>
+      </div>
+    </div>
+    <div class="pod-row">
+      <div class="pod-mini"><div class="pod-mini-art">🎮</div><h4>Ep. 41 — ¿Son los esports un deporte de verdad?</h4><p>48 min · Hace 2 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">👨‍👩‍👦</div><h4>Ep. 40 — Crianza positiva en la era gamer</h4><p>55 min · Hace 3 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">🤖</div><h4>Ep. 39 — IA en los videojuegos del futuro</h4><p>61 min · Hace 1 mes</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      <div class="pod-mini"><div class="pod-mini-art">🏆</div><h4>Ep. 38 — Lo mejor del año gamer 2024</h4><p>74 min · Hace 2 meses</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div id="newsletter" class="nl-wrap">
+  <div class="nl-glow"></div>
+  <div class="nl-inner">
+    <div class="nl-icon">🎮</div>
+    <h2>Únete a <span>la banda</span></h2>
+    <p>Recibe las mejores noticias, reseñas y tips para familias gamers directamente en tu correo. Sin spam — solo contenido chido de Papá Gamer Mex.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="tu@correo.com">
+      <button type="button">Suscribirse</button>
+    </div>
+    <div class="nl-note">+5 años de contenido gamer familiar · papagamermex.mx · @papagamermex</div>
+  </div>
+</div>
+
