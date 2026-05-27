@@ -72,33 +72,35 @@ layout: base.njk
     </div>
     <div class="feat-grid">
       {% set ultimas_noticias = collections.noticias | reverse %}
-      {% for post in ultimas_noticias.slice(0, 3) %}
-        {% if loop.first %}
-          <a href="{{ post.url }}" class="card feat-main">
-            <div class="card-img">
-              <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80' }}" alt="{{ post.data.title }}">
-              <span class="cat-tag tag-cyan">{{ post.data.category | default("NOTICIAS") | upper }}</span>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" style="font-size:1.4rem; margin-bottom:0.6rem;">{{ post.data.title }}</h3>
-              <p class="feat-desc">{{ post.templateContent | striptags | truncate(150) }}</p>
-              <div class="card-meta">
-                <span>🕐 {{ post.date | date }}</span>
-                <span>✍️ {{ post.data.author | default("Eduardo Díaz") }}</span>
+      {% for post in ultimas_noticias %}
+        {% if loop.index0 < 3 %}
+          {% if loop.first %}
+            <a href="{{ post.url }}" class="card feat-main">
+              <div class="card-img">
+                <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80' }}" alt="{{ post.data.title }}">
+                <span class="cat-tag tag-cyan">{{ post.data.category | default("NOTICIAS") | upper }}</span>
               </div>
-            </div>
-          </a>
-        {% else %}
-          <a href="{{ post.url }}" class="card">
-            <div class="card-img">
-              <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&q=80' }}" alt="{{ post.data.title }}">
-              <span class="cat-tag tag-teal">{{ post.data.category | default("NOTICIAS") | upper }}</span>
-            </div>
-            <div class="card-body">
-              <h3 class="card-title">{{ post.data.title }}</h3>
-              <div class="card-meta"><span>🕐 {{ post.date | date }}</span></div>
-            </div>
-          </a>
+              <div class="card-body">
+                <h3 class="card-title" style="font-size:1.4rem; margin-bottom:0.6rem;">{{ post.data.title }}</h3>
+                <p class="feat-desc">{{ post.templateContent | striptags | truncate(150) }}</p>
+                <div class="card-meta">
+                  <span>🕐 {{ post.date | date }}</span>
+                  <span>✍️ {{ post.data.author | default("Eduardo Díaz") }}</span>
+                </div>
+              </div>
+            </a>
+          {% else %}
+            <a href="{{ post.url }}" class="card">
+              <div class="card-img">
+                <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&q=80' }}" alt="{{ post.data.title }}">
+                <span class="cat-tag tag-teal">{{ post.data.category | default("NOTICIAS") | upper }}</span>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">{{ post.data.title }}</h3>
+                <div class="card-meta"><span>🕐 {{ post.date | date }}</span></div>
+              </div>
+            </a>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </div>
@@ -183,16 +185,18 @@ layout: base.njk
     <div class="padres-layout">
       <div class="tips">
         {% set ultimos_tips = collections.para_padres | reverse %}
-        {% for tip in ultimos_tips.slice(0, 4) %}
-        <a href="{{ tip.url }}" class="tip">
-          <div class="tip-ico {% if loop.index0 % 4 == 0 %}ico-c{% elif loop.index0 % 4 == 1 %}ico-p{% elif loop.index0 % 4 == 2 %}ico-t{% else %}ico-r{% endif %}">
-            {% if "Streaming" in tip.data.category or "App" in tip.data.title %}📱{% elif "Educativos" in tip.data.category %}🎓{% else %}🛡️{% endif %}
-          </div>
-          <div>
-            <h4>{{ tip.data.title }}</h4>
-            <p>{{ tip.templateContent | striptags | truncate(90) }}</p>
-          </div>
-        </a>
+        {% for tip in ultimos_tips %}
+          {% if loop.index0 < 4 %}
+            <a href="{{ tip.url }}" class="tip">
+              <div class="tip-ico {% if loop.index0 % 4 == 0 %}ico-c{% elif loop.index0 % 4 == 1 %}ico-p{% elif loop.index0 % 4 == 2 %}ico-t{% else %}ico-r{% endif %}">
+                {% if "Streaming" in tip.data.category or "App" in tip.data.title %}📱{% elif "Educativos" in tip.data.category %}🎓{% else %}🛡️{% endif %}
+              </div>
+              <div>
+                <h4>{{ tip.data.title }}</h4>
+                <p>{{ tip.templateContent | striptags | truncate(90) }}</p>
+              </div>
+            </a>
+          {% endif %}
         {% endfor %}
       </div>
 
