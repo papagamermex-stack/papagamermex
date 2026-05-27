@@ -83,7 +83,7 @@ layout: base.njk
               <h3 class="card-title" style="font-size:1.4rem; margin-bottom:0.6rem;">{{ post.data.title }}</h3>
               <p class="feat-desc">{{ post.templateContent | striptags | truncate(150) }}</p>
               <div class="card-meta">
-                <span>🕐 {{ post.date | date("yyyy-MM-dd") }}</span>
+                <span>🕐 {{ post.date | date }}</span>
                 <span>✍️ {{ post.data.author | default("Eduardo Díaz") }}</span>
               </div>
             </div>
@@ -96,7 +96,7 @@ layout: base.njk
             </div>
             <div class="card-body">
               <h3 class="card-title">{{ post.data.title }}</h3>
-              <div class="card-meta"><span>🕐 {{ post.date | date("yyyy-MM-dd") }}</span></div>
+              <div class="card-meta"><span>🕐 {{ post.date | date }}</span></div>
             </div>
           </a>
         {% endif %}

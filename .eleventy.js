@@ -4,6 +4,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
   eleventyConfig.addPassthroughCopy("_redirects");
 
+  // Add a simple date filter since Nunjucks doesn't have one built-in
+  eleventyConfig.addFilter("date", function(dateObj, format) {
+    if (!dateObj) return "";
+    return dateObj.toISOString().split('T')[0];
+  });
+
   return {
     dir: {
       input: ".",
