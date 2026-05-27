@@ -1,5 +1,5 @@
 ---
-title: "¡Yujiro Hanma llega a TEKKEN 8! Prepárense para la "criatura más fuerte de la Tierra""
+title: "¡Yujiro Hanma llega a TEKKEN 8! Prepárense para la \"criatura más fuerte de la Tierra\""
 date: 2026-05-26T17:14:52.000Z
 author: Eduardo Díaz
 category: Noticias
