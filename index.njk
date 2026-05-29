@@ -115,58 +115,27 @@ layout: base.njk
       <a href="#" class="see-all">Ver todas →</a>
     </div>
     <div class="rev-grid">
-      <a href="#" class="card">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&q=80" alt=""><span class="cat-tag tag-red">ANÁLISIS</span></div>
-        <div class="card-body">
-          <h3 class="card-title">Call of Duty: Black Ops 6</h3>
-          <div class="score-row">
-            <div class="bars">
-              <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
-              <div class="bar-lbl">Gameplay · Historia · Técnico</div>
+      {% set ultimas_resenas = collections.resenas | reverse %}
+      {% for post in ultimas_resenas %}
+        {% if loop.index0 < 4 %}
+          <a href="{{ post.url }}" class="card">
+            <div class="card-img">
+              <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&q=80' }}" alt="{{ post.data.title }}">
+              <span class="cat-tag tag-red">{{ post.data.genre | default("ANÁLISIS") | upper }}</span>
             </div>
-            <div class="score-num s9">9</div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="card">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1600861194942-f883de0dfe96?w=400&q=80" alt=""><span class="cat-tag tag-teal">ANÁLISIS</span></div>
-        <div class="card-body">
-          <h3 class="card-title">F1 25 — El mejor simulador de la parrilla</h3>
-          <div class="score-row">
-            <div class="bars">
-              <div class="bar"><div class="bar-fill" style="width:82%"></div></div>
-              <div class="bar-lbl">Realismo · Jugabilidad · Online</div>
+            <div class="card-body">
+              <h3 class="card-title">{{ post.data.title | replace("Reseña: ", "") | replace("Reseña de Película: ", "") }}</h3>
+              <div class="score-row">
+                <div class="bars">
+                  <div class="bar"><div class="bar-fill" style="width:{{ (post.data.score | default(8)) * 10 }}%"></div></div>
+                  <div class="bar-lbl">Gameplay · Historia · Técnico</div>
+                </div>
+                <div class="score-num s{{ (post.data.score | default(8)) | round(0, 'floor') }}">{{ post.data.score | default("8.0") }}</div>
+              </div>
             </div>
-            <div class="score-num s8">8</div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="card">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=400&q=80" alt=""><span class="cat-tag tag-cyan">ANÁLISIS</span></div>
-        <div class="card-body">
-          <h3 class="card-title">Mario Kart World — Juego del año familiar</h3>
-          <div class="score-row">
-            <div class="bars">
-              <div class="bar"><div class="bar-fill" style="width:96%"></div></div>
-              <div class="bar-lbl">Diversión · Multi · Rejugabilidad</div>
-            </div>
-            <div class="score-num s10" style="font-size:0.9rem;">9.5</div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="card">
-        <div class="card-img"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=80" alt=""><span class="cat-tag tag-purple">ANÁLISIS</span></div>
-        <div class="card-body">
-          <h3 class="card-title">Hollow Knight: Silksong — La espera valió la pena</h3>
-          <div class="score-row">
-            <div class="bars">
-              <div class="bar"><div class="bar-fill" style="width:75%"></div></div>
-              <div class="bar-lbl">Arte · Historia · Mecánicas</div>
-            </div>
-            <div class="score-num s7" style="font-size:0.9rem;">7.5</div>
-          </div>
-        </div>
-      </a>
+          </a>
+        {% endif %}
+      {% endfor %}
     </div>
     <p style="margin-top:1rem; font-size:0.77rem; color:var(--text-dim); display:flex; align-items:center; gap:6px; background:var(--bg3); padding:0.65rem 1rem; border-radius:8px; border:1px solid var(--card-border);">
       <span style="color:var(--cyan); font-size:14px;">ℹ</span>
