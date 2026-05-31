@@ -2,7 +2,7 @@
 title: "Reseña: The Relic: The First Guardian - Un ARPG que promete pero le falta pulir"
 date: "2026-05-29T12:00:00.000Z"
 author: "Eduardo Díaz"
-image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1400&q=80"
+image: "/images/noticias/the_relic_review.png"
 platform: "PC"
 genre: "ARPG"
 score: 7.5

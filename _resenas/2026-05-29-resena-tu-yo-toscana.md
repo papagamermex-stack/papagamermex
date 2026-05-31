@@ -2,7 +2,7 @@
 title: "Reseña de Película: Tú, yo y la Toscana - Comedia romántica para desconectar"
 date: "2026-05-29T12:00:00.000Z"
 author: "Eduardo Díaz"
-image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1400&q=80"
+image: "/images/noticias/toscana_movie_review.png"
 platform: "Cine"
 genre: "Comedia Romántica"
 score: 8.0

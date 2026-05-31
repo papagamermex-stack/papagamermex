@@ -2,7 +2,7 @@
 title: "Reseña: 007: First Light - El regreso triunfal de James Bond a los videojuegos"
 date: "2026-05-29T12:00:00.000Z"
 author: "Eduardo Díaz"
-image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1400&q=80"
+image: "/images/noticias/007_first_light_review.png"
 platform: "PS5"
 genre: "Acción / Espionaje"
 score: 9.0
