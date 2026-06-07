@@ -37,6 +37,6 @@ Por el lado de los juegos indie y expansiones, se viene de todo: **JOIN US** (si
 Pero para rematar, Xbox sacará una consola edición limitada por sus 25 años en noviembre de 2026: la **Xbox Series X25 Limited Edition**. Trae una carcasa verde translúcida hermosa que me pegó directo en la nostalgia, con el control replicando el estilo clásico.
 
 Aquí les dejo el video completo para que lo chequen a detalle:
-https://www.youtube.com/watch?v=RinXA_k9f4s
+[Ver el video del Xbox Games Showcase 2026 en YouTube](https://www.youtube.com/watch?v=RinXA_k9f4s)
 
 ¡A seguir jugando y creando recuerdos en familia, papus!
