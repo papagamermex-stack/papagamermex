@@ -207,7 +207,7 @@ layout: base.njk
       <div class="esport-card">
         <div class="esport-ico">🏎️</div>
         <h4>Torneos F1 Papá Gamer</h4>
-        <p>Competencias presenciales de F1 organizadas en alianza con la Academia Mexicana de Esports. ¡Inscríbete!</p>
+        <p>Competencias presenciales de F1 organizadas en alianza con la Academia Mexicana de Esports.</p>
         <span class="e-badge eb-soon">Próximamente</span>
       </div>
       <div class="esport-card">
@@ -231,26 +231,40 @@ layout: base.njk
   <div class="section">
     <div class="sec-head">
       <h2 class="sec-title">Podcast — Papá Gamer y Su Banda</h2>
-      <a href="#" class="see-all">Escuchar →</a>
+      <a href="https://open.spotify.com/show/1mflsuXtlRvmtOfRTczCay" target="_blank" class="see-all">Escuchar en Spotify →</a>
     </div>
+    {% if podcast.length > 0 %}
     <div class="pod-featured">
       <div class="pod-cover">🎙️</div>
       <div class="pod-info">
-        <div class="pod-ep">Episodio más reciente · Ep. 42</div>
-        <h3>Los mejores juegos para jugar en familia estas vacaciones</h3>
-        <p>Papá Gamer, Mike y Geo discuten sus picks favoritos. Opinión, cotorreo y análisis gamer en familia.</p>
+        <div class="pod-ep">Episodio más reciente</div>
+        <h3><a href="{{ podcast[0].link }}" target="_blank" style="color:inherit;text-decoration:none;">{{ podcast[0].title }}</a></h3>
+        <p>{{ podcast[0].summary }}</p>
       </div>
       <div style="text-align:center;">
-        <div class="pod-play-btn">▶</div>
-        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:4px;">52 min</div>
+        <a href="{{ podcast[0].link }}" target="_blank" style="text-decoration:none;">
+          <div class="pod-play-btn">▶</div>
+        </a>
+        <div style="font-size:0.7rem; color:var(--text-dim); margin-top:4px;">{{ podcast[0].duration }}</div>
       </div>
     </div>
     <div class="pod-row">
-      <div class="pod-mini"><div class="pod-mini-art">🎮</div><h4>Ep. 41 — ¿Son los esports un deporte de verdad?</h4><p>48 min · Hace 2 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
-      <div class="pod-mini"><div class="pod-mini-art">👨‍👩‍👦</div><h4>Ep. 40 — Crianza positiva en la era gamer</h4><p>55 min · Hace 3 semanas</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
-      <div class="pod-mini"><div class="pod-mini-art">🤖</div><h4>Ep. 39 — IA en los videojuegos del futuro</h4><p>61 min · Hace 1 mes</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
-      <div class="pod-mini"><div class="pod-mini-art">🏆</div><h4>Ep. 38 — Lo mejor del año gamer 2024</h4><p>74 min · Hace 2 meses</p><div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div></div>
+      {% for ep in podcast.slice(1, 5) %}
+      <div class="pod-mini">
+        <div class="pod-mini-art">🎮</div>
+        <h4><a href="{{ ep.link }}" target="_blank" style="color:inherit;text-decoration:none;">{{ ep.title }}</a></h4>
+        <p>{{ ep.duration }} · {{ ep.pubDate.split(' ').slice(1, 4).join(' ') }}</p>
+        <a href="{{ ep.link }}" target="_blank" style="text-decoration:none; color:inherit;">
+          <div class="mini-play"><div class="mini-play-btn">▶</div><span>Reproducir</span></div>
+        </a>
+      </div>
+      {% endfor %}
     </div>
+    {% else %}
+    <div style="text-align:center; padding: 40px; color: var(--text-dim);">
+       No pudimos cargar los episodios recientes, por favor visita <a href="https://open.spotify.com/show/1mflsuXtlRvmtOfRTczCay" target="_blank" style="color:var(--primary);">nuestro Spotify</a>.
+    </div>
+    {% endif %}
   </div>
 </section>
 
@@ -261,10 +275,10 @@ layout: base.njk
     <div class="nl-icon">🎮</div>
     <h2>Únete a <span>la banda</span></h2>
     <p>Recibe las mejores noticias, reseñas y tips para familias gamers directamente en tu correo. Sin spam — solo contenido chido de Papá Gamer Mex.</p>
-    <div class="nl-form">
-      <input type="email" placeholder="tu@correo.com">
-      <button type="button">Suscribirse</button>
-    </div>
+    <form name="newsletter" method="POST" data-netlify="true" class="nl-form">
+      <input type="email" name="email" placeholder="tu@correo.com" required>
+      <button type="submit">Suscribirse</button>
+    </form>
     <div class="nl-note">+5 años de contenido gamer familiar · papagamermex.mx · @papagamermex</div>
   </div>
 </div>

@@ -1,0 +1,76 @@
+---
+layout: base.njk
+title: "Descarga la Guía: 15 Videojuegos para Conectar con tus Hijos — Papá Gamer Mex"
+---
+
+<!-- HERO / LANDING PAGE -->
+<section class="hero" style="min-height: 80vh; display: flex; align-items: center;">
+  <div class="hero-bg"></div>
+  <div class="hero-glow-left"></div>
+  <div class="hero-glow-right"></div>
+  
+  <div class="hero-content" style="padding-top: 4rem; display: flex; flex-wrap: wrap; gap: 4rem; align-items: center; justify-content: center;">
+    
+    <!-- LADO IZQUIERDO: COPY DE VENTA -->
+    <div style="flex: 1; min-width: 300px; max-width: 600px;">
+      <div class="hero-badge"><div class="dot"></div> Guía 100% Gratuita</div>
+      <h1 class="hero-title" style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">
+        15 Videojuegos para<br><em>Conectar</em> con tus<br><strong>Hijos.</strong>
+      </h1>
+      <p class="hero-sub" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        ¿Sientes que los videojuegos te alejan de tus hijos? No tiene que ser así. Descubre mi selección personal de los mejores juegos (divididos por edades) que nos han servido para reírnos, aprender y hacer equipo en familia.
+      </p>
+      <ul style="list-style: none; color: var(--text); margin-bottom: 2rem; font-size: 1rem; line-height: 1.8;">
+        <li>✅ <strong>15 Fichas detalladas</strong> de juegos familiares.</li>
+        <li>✅ <strong>Tips de Papá Gamer</strong> para cada uno de ellos.</li>
+        <li>✅ <strong>Advertencias ("Ojo papá")</strong> de seguridad infantil.</li>
+        <li>✅ <strong>BONUS:</strong> Guía rápida de controles parentales.</li>
+      </ul>
+      <p style="color: var(--cyan); font-weight: 700; font-size: 1.1rem;">¡Llena el formulario y te la mando a tu correo ahorita mismo!</p>
+    </div>
+
+    <!-- LADO DERECHO: FORMULARIO -->
+    <div style="flex: 1; min-width: 300px; max-width: 450px;">
+      <div style="background: var(--bg2); border: 1px solid var(--cyan-border); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 10px 40px rgba(0,229,255,0.15); position: relative; overflow: hidden;">
+        
+        <!-- Glow interno -->
+        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(0,229,255,0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+
+        <h2 style="font-family: 'Exo 2', sans-serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; text-align: center;">¿A dónde te la mando?</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin-bottom: 2rem;">Déjame tu nombre y tu mejor correo electrónico.</p>
+        
+        <form name="DescargaGuia" method="POST" data-netlify="true" action="/gracias-guia" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <!-- Campo oculto para Netlify -->
+          <input type="hidden" name="form-name" value="DescargaGuia" />
+
+          <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label for="nombre" style="font-size: 0.85rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em;">Nombre de papá/mamá gamer</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Lalo" required style="background: var(--bg3); border: 1px solid var(--card-border); border-radius: 8px; padding: 0.9rem 1rem; color: var(--white); font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;">
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label for="email" style="font-size: 0.85rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em;">Correo Electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required style="background: var(--bg3); border: 1px solid var(--card-border); border-radius: 8px; padding: 0.9rem 1rem; color: var(--white); font-family: 'Nunito', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.2s;">
+          </div>
+
+          <button type="submit" style="background: var(--cyan); color: var(--black); border: none; border-radius: 8px; padding: 1rem; font-family: 'Exo 2', sans-serif; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 0 20px rgba(0,229,255,0.4); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+            ¡Quiero mi Guía Gratis!
+          </button>
+          
+          <p style="font-size: 0.75rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem;">
+            *Al descargar aceptas unirte al newsletter gratuito de Papá Gamer Mex. Cero spam, puras cosas chidas.
+          </p>
+        </form>
+
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ESTILOS EXTRA PARA LOS INPUTS -->
+<style>
+  form input:focus { border-color: var(--cyan) !important; }
+  form button:hover { transform: translateY(-3px); box-shadow: 0 5px 25px rgba(0,229,255,0.6) !important; }
+</style>

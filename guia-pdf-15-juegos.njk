@@ -1,0 +1,855 @@
+---
+layout: false
+permalink: /guia-descarga-15-juegos/index.html
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Guía del Papá Gamer: 15 Videojuegos para Conectar con tus Hijos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800;900&display=swap');
+
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --accent-green: #22c55e;
+            --accent-purple: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Contenedor principal para impresión/visualización */
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-dark);
+        }
+
+        /* --- Portada --- */
+        .cover {
+            height: 100vh;
+            min-height: 1050px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(15,23,42,1) 0%, rgba(30,41,59,1) 50%, rgba(59,130,246,0.2) 100%);
+            border-bottom: 8px solid var(--accent-orange);
+            page-break-after: always;
+        }
+
+        .badge-free {
+            background-color: var(--accent-green);
+            color: var(--bg-dark);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .cover-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(45deg, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 50px;
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .cover-author {
+            margin-top: auto;
+            padding-top: 50px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .logo-accent {
+            color: var(--accent-blue);
+        }
+
+        .author-creds {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* --- Secciones --- */
+        .section {
+            padding: 60px 40px;
+            page-break-after: always;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            border-left: 6px solid var(--accent-blue);
+            padding-left: 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* Específico por edades */
+        .age-3-5 { border-color: var(--accent-green); }
+        .age-6-9 { border-color: var(--accent-blue); }
+        .age-10-13 { border-color: var(--accent-orange); }
+        .age-14 { border-color: var(--accent-purple); }
+
+        /* --- Fichas de Juego --- */
+        .game-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            page-break-inside: avoid;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+
+        .game-title {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-platform { background-color: rgba(248, 250, 252, 0.1); color: var(--text-main); }
+        .badge-age { background-color: var(--accent-blue); color: white; }
+        
+        .stars {
+            font-size: 1.2rem;
+            color: #fbbf24;
+            letter-spacing: 2px;
+        }
+
+        .game-content h4 {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .game-content p {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .tip-box {
+            background-color: rgba(249, 115, 22, 0.1);
+            border-left: 4px solid var(--accent-orange);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .tip-box h4 {
+            color: var(--accent-orange);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box h4 {
+            color: #ef4444;
+            margin-top: 0;
+        }
+
+        /* --- Textos Intro --- */
+        .intro-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        /* --- Bonus Sections --- */
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .bonus-card {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent-blue);
+        }
+
+        .bonus-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .bonus-card ul {
+            padding-left: 20px;
+            color: #cbd5e1;
+        }
+
+        .bonus-card li {
+            margin-bottom: 10px;
+        }
+
+        /* --- Cierre --- */
+        .closing {
+            text-align: center;
+            padding: 80px 40px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Print Styles --- */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            .page-container {
+                background-color: white;
+            }
+
+            .cover {
+                background: white;
+                color: black;
+            }
+
+            .cover-title {
+                -webkit-text-fill-color: black;
+            }
+
+            .game-card {
+                background-color: #f8fafc;
+                border: 1px solid #e2e8f0;
+                box-shadow: none;
+                color: black;
+            }
+
+            .game-title, .game-content h4, .logo-text, .section-title {
+                color: black !important;
+            }
+
+            .game-content p, .intro-text p, .author-creds, .section-desc {
+                color: #334155 !important;
+            }
+            
+            .badge-platform {
+                background-color: #e2e8f0;
+                color: black;
+            }
+
+            @page {
+                margin: 2cm;
+                size: portrait;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-container">
+
+    <!-- PORTADA -->
+    <div class="cover">
+        <div class="badge-free">Guía Gratuita</div>
+        <h1 class="cover-title">15 Videojuegos para Conectar con tus Hijos</h1>
+        <p class="cover-subtitle">La guía definitiva para papás que quieren usar los videojuegos como herramienta de conexión familiar</p>
+        
+        <div class="cover-author">
+            <div class="logo-text">PAPÁ <span class="logo-accent">GAMER</span> MEX</div>
+            <p class="author-creds">Por Eduardo Díaz<br>Periodista, Director de la Academia Mexicana de Esports, y papá de 4 hijos.</p>
+        </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">¿Por qué hice esta guía?</h2>
+        </div>
+        <div class="intro-text">
+            <p>¡Qué onda papás! Soy Papá Gamer Mex. Crecí con un control en las manos y hoy, como papá de 4 chamacos, sigo siendo un gamer de corazón.</p>
+            <p>A lo largo de los años me he dado cuenta de algo: los videojuegos pueden separar a una familia (cuando cada quien se encierra en su cuarto) o pueden ser el pegamento que la une. Todo depende de QUÉ juegan y CÓMO lo juegan.</p>
+            <p>He probado decenas de juegos con mis hijos. Algunos fueron un desastre, otros nos dieron tardes inolvidables. Esta guía es mi selección personal, filtrada por edad, de los juegos que NETA nos han servido para conectar, reírnos y aprender juntos.</p>
+            <p>Cada juego trae su calificación familiar, el porqué lo recomiendo, un "Tip de Papá Gamer" para que le saques jugo, y un "Ojo, papá" para que sepas qué precauciones tomar. ¡A jugar se ha dicho!</p>
+        </div>
+    </div>
+
+    <!-- EDADES 3-5 -->
+    <div class="section">
+        <div class="section-header age-3-5">
+            <h2 class="section-title">Pequeños Gamers (3 a 5 años)</h2>
+            <p class="section-desc">Juegos seguros, coloridos y sin frustración para sus primeras experiencias.</p>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Mario Kart 8 Deluxe</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Nintendo Switch</span>
+                        <span class="badge badge-age">3+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>El modo de "conducción asistida" cambia las reglas del juego. Un niño de 3 años puede jugar y sentir que realmente está ganando. Es perfecto para tiempos de atención cortos, ya que cada carrera dura apenas 2 o 3 minutos.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Activa el asistente de dirección Y la aceleración automática. Tu peque solo necesita sostener el control y sonreír. La cara que ponen cuando cruzan la meta... ¡no tiene precio!</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>No hay nada de qué preocuparse aquí. Es la apuesta más segura para iniciar a los más chiquitos en el mundo del gaming.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Just Dance 2025</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">3+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Los pone a MOVERSE. En un mundo donde nos preocupa el tiempo en pantalla, este juego lo vuelve saludable. Los niños bailan, sudan y se ríen. En casa es tradición familiar los viernes por la noche.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Quiten los muebles de la sala, pónganlo en la tele grande y que todos bailen. Hasta la abuelita puede participar. Aquí nadie juzga y todos ríen.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Algunas canciones comerciales tienen letras sugerentes. Manténganse en el modo "Kids" que filtra todo y pone coreografías amigables.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Paw Patrol: Grand Prix</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">3+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Juegan con personajes que ya aman. Es un juego de carreras muy sencillo, ideal como puerta de entrada al gaming para los más peques de la casa.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>No subestimes los juegos de licencia. Para un peque, poder controlar a Chase y Marshall en la tele es magia pura y absoluta.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Es muy corto y puede volverse repetitivo para un adulto. Pero para un niño de 3 a 5 años, repetir lo mismo una y otra vez es una ventaja, no un defecto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDADES 6-9 -->
+    <div class="section">
+        <div class="section-header age-6-9">
+            <h2 class="section-title">Niños Curiosos (6 a 9 años)</h2>
+            <p class="section-desc">Fomentando la creatividad, el trabajo en equipo y la resolución de problemas.</p>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Minecraft</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las plataformas</span>
+                        <span class="badge badge-age">6+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>ES el juego de la creatividad. Enseña resolución de problemas, pensamiento espacial y colaboración. Nosotros construimos una réplica de nuestra casa en el juego, y luego una ciudad entera.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Empiecen en Modo Creativo juntos. Construyan algo con significado: su casa, su escuela, su lugar de vacaciones soñado. Cuando estén listos, pasen a Supervivencia EN EQUIPO. La conexión es increíble.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>El multijugador online puede exponerlos a extraños. Mantenlo en multijugador local o servidores privados. Desactiva el chat con desconocidos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Super Mario Bros. Wonder</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Nintendo Switch</span>
+                        <span class="badge badge-age">6+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Cooperativo de 4 jugadores donde toda la familia juega al mismo tiempo en la misma pantalla. Los efectos "Wonder" hacen que cada nivel sea una sorpresa loquísima.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Usa a Nabbit o Yoshi con los más chicos, ya que esos personajes no reciben daño, así que nunca se frustran. Deja que los grandes jueguen con Mario o Luigi para tener el reto completo.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Los niveles más difíciles pueden causar algo de frustración. Úsalo para enseñarles que fallar es parte del proceso de aprendizaje.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">LEGO Star Wars: The Skywalker Saga</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">7+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Son 9 películas de aventura cooperativa. Si alguien quiere unirse o irse, entra y sale sin interrumpir la partida. Es súper gracioso y enseña muchísimo a trabajar en equipo.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Jueguen las películas en orden. Se convierte en un proyecto familiar que dura SEMANAS. Mis hijos ahora conocen toda la saga de pe a pa por este juego.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Tiene "violencia" de caricatura, pero como todo es de LEGO, los enemigos simplemente se desarman en piececitas. Todo es con mucho humor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Splatoon 3</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Nintendo Switch</span>
+                        <span class="badge badge-age">7+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Es un juego de disparos (shooter) 100% familiar. En lugar de balas, disparas PINTURA. Gana el equipo que más pinte el mapa, no el que elimine a más oponentes.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Este juego es el escalón perfecto antes de que te pidan juegos como Call of Duty o Valorant. Enseña todas las mecánicas, puntería y estrategia sin una gota de violencia.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Las batallas multijugador son exclusivamente online. La buena noticia es que la comunidad de Nintendo suele ser muy amigable y el chat de voz es casi nulo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDADES 10-13 -->
+    <div class="section">
+        <div class="section-header age-10-13">
+            <h2 class="section-title">Pre-Adolescentes (10 a 13 años)</h2>
+            <p class="section-desc">Retos mayores, comunicación intensa y juegos que ya dominan con destreza.</p>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Rocket League</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las plataformas (GRATIS)</span>
+                        <span class="badge badge-age">10+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Fútbol + carros con cohetes = adrenalina pura. Es muy fácil entender de qué va, pero increíblemente difícil de dominar. Jugar partidas dobles competitivas con mi hijo mayor es NUESTRO momento de la semana.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Jueguen 2v2 contra los bots primero. Cuando ya se entiendan bien, salgan al online EN EQUIPO. La neta, nada te une más a tu hijo que ganar juntos contra un par de desconocidos de otro país.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>El chat de texto puede ponerse tóxico cuando la gente pierde. Ve a las configuraciones y desactívalo. Déjalo solo en "Chat Rápido" (que son mensajes predeterminados como "¡Buen tiro!").</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Overcooked! 2</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">10+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Caos culinario cooperativo. DEBEN comunicarse a la perfección o la cocina se incendia (literalmente). Enseña trabajo en equipo mejor que cualquier dinámica de oficina.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Advertencia: Este juego SÍ va a causar gritos. Pero de los buenos. "¡PÁSAME EL TOMATE!" "¡NO HAY PLATOS LIMPIOS!". Es histérico e inolvidable. Ideal para una noche de viernes con pizza.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Puede volverse genuinamente estresante si se lo toman muy en serio. Si tu hijo se frustra rápido, comiencen por los niveles más fáciles y no se preocupen por ganar las 3 estrellas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">It Takes Two</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">PS5, Xbox, PC</span>
+                        <span class="badge badge-age">10+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Fue diseñado EXCLUSIVAMENTE para dos jugadores y ganó el Juego del Año. Ustedes controlan a una pareja que se va a divorciar y que se encoge al tamaño de unos muñecos. Cada nivel tiene mecánicas diferentes. Es una joya de diseño cooperativo.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Juega este con tu hijo o hija mayor. La historia toca temas súper profundos sobre la familia, la empatía y la comunicación. Te abrirá la puerta a pláticas REALES que de otra forma no tendrían.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Los temas sobre el divorcio y los conflictos familiares pueden ser fuertes. Pero míralo como algo positivo: ayuda a los niños a procesar emociones complejas en un entorno seguro.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Roblox</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas (GRATIS)</span>
+                        <span class="badge badge-age">10+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★☆☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Tus hijos YA lo están jugando. En lugar de prohibirlo, juégalo CON ellos. Cuando decidí meterme a ver qué hacían ahí, me sorprendí al encontrar juegos súper creativos y de estrategia, no solo caos.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Pídele a tu hijo que te enseñe SU juego favorito dentro de Roblox. Deja que él sea el experto. Le va a fascinar la idea de enseñarle a papá. Y una vez ahí, configuran juntos las opciones de privacidad.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Cuidado con las compras integradas (Robux) y el chat con desconocidos. Es el juego que requiere MÁS supervisión parental de toda la lista. Precisamente por eso debes involucrarte.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDADES 14+ -->
+    <div class="section">
+        <div class="section-header age-14">
+            <h2 class="section-title">Adolescentes (14+ años)</h2>
+            <p class="section-desc">Acercándote a tus hijos en una etapa donde parece que el gaming los aleja.</p>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Fortnite</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las plataformas (GRATIS)</span>
+                        <span class="badge badge-age">13+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Aquí va mi opinión sincera: Fortnite NO es el enemigo. Es un juego que enseña gestión de recursos, construcción bajo presión y mucho pensamiento estratégico en equipo.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Haz equipo (Squad) con tu hijo y sus amigos. Conviértete en el "papá cool" por un rato. Es muy probable que te eliminen rápido, pero a tu hijo le va a ENCANTAR el esfuerzo. Que te enseñen ellos cambia la dinámica padre-hijo de forma brutal.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>El chat de voz abierto es un peligro. Úsenlo siempre en modo "Chat de Grupo" (Party Chat), para que solo escuchen a la gente que tienen agregada como amigos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">EA Sports FC (Antes FIFA)</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">13+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Es el juego universal para crear vínculos, especialmente en Latinoamérica. Las retas del fin de semana no fallan.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Organiza un torneo familiar los domingos. Imprime un bracket real y pégalo en la pared. Que el ganador elija la película de la noche o qué cenar. Conviertes una tarde cualquiera en un súper evento.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>El modo Ultimate Team está lleno de "cajas de botín" (sobres) que cuestan dinero real y funcionan como apuestas. Manténganse alejados de ahí y jueguen torneos locales o modo carrera.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Hogwarts Legacy</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">Todas las consolas</span>
+                        <span class="badge badge-age">13+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Si a tu familia le gusta Harry Potter, esto es un SUEÑO hecho realidad. Exploras el castillo a tu ritmo. Aunque es para un solo jugador, se disfruta muchísimo como experiencia grupal en el sillón.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Trátenlo como una serie de televisión familiar. Una persona trae el control, y los demás ven y votan qué hacer. "¿Aprendemos este hechizo?" "¿Entramos a esa cueva oscura?". Es entretenimiento familiar interactivo.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Hay combate mágico y algunos monstruos pueden ser intensos, pero nada más grave que lo que se ve en las últimas películas de la saga.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-header">
+                <div>
+                    <h3 class="game-title">Gran Turismo 7 / Forza Horizon 6</h3>
+                    <div class="badges">
+                        <span class="badge badge-platform">PS5 / Xbox-PC</span>
+                        <span class="badge badge-age">14+ Años</span>
+                    </div>
+                </div>
+                <div class="stars">★★★★☆</div>
+            </div>
+            <div class="game-content">
+                <h4>¿Por qué jugarlo en familia?</h4>
+                <p>Ideal para las familias que aman los motores. Gran Turismo es excelente para aprender físicas reales de manejo (¡hasta aprendes a usar frenos ABS!), mientras que Forza es pura diversión de mundo abierto.</p>
+                <div class="tip-box">
+                    <h4>💡 Tip de Papá Gamer</h4>
+                    <p>Ponle este reto a tu adolescente: "Si logras romper mi tiempo de vuelta en esta pista, el fin de semana te doy tu primera clase de manejo real." Así conectas el juego con la vida real creando un súper recuerdo.</p>
+                </div>
+                <div class="warning-box">
+                    <h4>⚠️ Ojo, papá</h4>
+                    <p>Son juegos súper sanos. Muy limpios, competitivos y sin ningún elemento tóxico del que debas preocuparte.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BONUS -->
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">BONUS: Control Parental Rápido</h2>
+            <p class="section-desc">No enciendas una consola nueva sin configurar esto primero.</p>
+        </div>
+        
+        <div class="bonus-grid">
+            <div class="bonus-card">
+                <h4>🔴 Nintendo Switch</h4>
+                <ul>
+                    <li>Ve a Configuración de la consola > Control Parental.</li>
+                    <li>Descarga la app "Nintendo Switch Parental Controls" en tu celular.</li>
+                    <li>Desde ahí puedes fijar tiempos límite de forma remota.</li>
+                </ul>
+            </div>
+            <div class="bonus-card">
+                <h4>🔵 PlayStation 5</h4>
+                <ul>
+                    <li>Ajustes > Familia y control parental > Gestión de familia.</li>
+                    <li>Crea cuentas separadas para los niños (NO les des tu cuenta).</li>
+                    <li>Fija límites de gasto y de tiempo de juego diario.</li>
+                </ul>
+            </div>
+            <div class="bonus-card">
+                <h4>🟢 Xbox</h4>
+                <ul>
+                    <li>Descarga la app "Xbox Family Settings" en tu celular.</li>
+                    <li>Añade la cuenta de tu hijo al grupo familiar.</li>
+                    <li>Puedes pausar el acceso a los juegos directamente desde tu pantalla.</li>
+                </ul>
+            </div>
+            <div class="bonus-card">
+                <h4>💻 PC y Móviles</h4>
+                <ul>
+                    <li>En Android: Descarga e instala "Google Family Link".</li>
+                    <li>En dispositivos Apple: Usa la función "Tiempo en pantalla" (Screen Time) desde Configuración.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2 class="section-title">BONUS: El Setup Familiar BBB</h2>
+            <p class="section-desc">No necesitas gastar una fortuna para jugar en familia. Aquí mi recomendación Buena, Bonita y Barata.</p>
+        </div>
+        
+        <div class="bonus-card" style="margin-top: 20px;">
+            <ul>
+                <li><strong>La Consola:</strong> Nintendo Switch (Aprox. $6,999 MXN). Es imbatible para jugar 4 personas en la misma pantalla.</li>
+                <li><strong>Controles extra:</strong> Un par de Joy-Cons adicionales o un control Pro genérico.</li>
+                <li><strong>La Pantalla:</strong> Cualquier tele de 40 pulgadas o más que ya tengas en la sala es perfecta.</li>
+                <li><strong>Asientos:</strong> Un par de Pufs (bean bags) o cojines de piso. Los niños NO necesitan "sillas gamer".</li>
+                <li><strong>Presupuesto Total:</strong> Con unos $8,000 a $10,000 MXN libras todo un centro de entretenimiento familiar.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CIERRE -->
+    <div class="closing">
+        <div class="logo-text" style="font-size: 2.5rem;">PAPÁ <span class="logo-accent">GAMER</span> MEX</div>
+        
+        <div class="cta-box">
+            <h3>¡Gracias por leer, papu!</h3>
+            <p>Espero que esta guía te sirva para pasar tardes increíbles con tus hijos.</p>
+            <p>Si te gustó, <strong>compártela con otros papás en los grupos de WhatsApp de la escuela.</strong></p>
+            <br>
+            <p>📸 Sígueme en Instagram: <strong>@papagamer_mex</strong></p>
+            <p>🌐 Visita el blog: <strong>papagamermex.mx</strong></p>
+            <p>📩 Y si aún no estás en mi newsletter semanal... ¡¿qué esperas?!</p>
+            <br>
+            <p style="color: #94a3b8; font-size: 1rem; margin-top: 20px;">Próximamente: "Guía #2 - Control Parental Sin Dramas"</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
