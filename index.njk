@@ -32,20 +32,17 @@ layout: base.njk
   <div class="ticker-tag">Última hora</div>
   <div style="overflow:hidden;flex:1;">
     <div class="ticker-scroll">
-      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
-      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
-      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
-      <span class="ti">Fortnite presenta nuevo modo familia</span>
-      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
-      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
-      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
-      <span class="ti">Nintendo Switch 2 llega a México en junio</span>
-      <span class="ti">GTA VI: fecha de lanzamiento confirmada</span>
-      <span class="ti">Papá Gamer Mex cubrió la CCXP México 2025</span>
-      <span class="ti">Fortnite presenta nuevo modo familia</span>
-      <span class="ti">¿Cuántas horas debe jugar tu hijo? Lo analizamos</span>
-      <span class="ti">CoD Black Ops 6: análisis completo ya disponible</span>
-      <span class="ti">Academia Mexicana de Esports anuncia torneos 2026</span>
+      {% set ultimas_ticker = collections.noticias | reverse %}
+      {% for post in ultimas_ticker %}
+        {% if loop.index0 < 7 %}
+          <span class="ti">{{ post.data.title }}</span>
+        {% endif %}
+      {% endfor %}
+      {% for post in ultimas_ticker %}
+        {% if loop.index0 < 7 %}
+          <span class="ti">{{ post.data.title }}</span>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>
