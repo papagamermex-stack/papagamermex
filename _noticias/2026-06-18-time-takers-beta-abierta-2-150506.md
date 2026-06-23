@@ -1,5 +1,5 @@
 ---
-title: "¡Time Takers lanza su segunda beta abierta! Prepárate para viajes en el tiempo y combates épicos"
+title: "¡Time Takers lanza su segunda beta exclusiva! Prepárate para viajes en el tiempo y combates épicos"
 date: 2026-06-18T15:05:06.000Z
 author: Eduardo Díaz
 category: Noticias
@@ -10,7 +10,7 @@ image: "/images/noticias/time-takers-beta-abierta-2-150506.jpg"
 
 Aquí su Papá Gamer Mex reportándose con una noticia que seguro les va a volar la cabeza, ¡neta!
 
-El equipo de NC y Mistil Games nos traen la segunda oportunidad para meternos de lleno en **Time Takers**, su shooter de supervivencia por equipos. Y esta vez, ¡la beta es abierta para todos los que quieran echarse un clavado!
+El equipo de NC y Mistil Games nos traen la segunda oportunidad para meternos de lleno en **Time Takers**, su shooter de supervivencia por equipos. Y esta vez, ¡la beta es exclusiva para los afortunados que logren entrar!
 
 ## ¿Qué onda con Time Takers?
 
@@ -18,7 +18,7 @@ Imagínense esto: eres un viajero del tiempo, tu escuadrón es tu familia en el 
 
 Este juego promete un ritmo frenético, combates tácticos y mucha velocidad. Vas a tener que adaptarte rápido o te quedas sin tiempo, ¡literal!
 
-## La Beta Abierta: ¡No te la puedes perder!
+## La Beta Exclusiva: ¡No te la puedes perder!
 
 La acción va a estar que arde **del viernes 26 al domingo 28 de junio**. Es su oportunidad perfecta para probar este concepto tan chido y darle feedback a los desarrolladores.
 
@@ -45,7 +45,7 @@ No se queden fuera de esta beta, familia. ¡Nos vemos en el campo de batalla tem
 
 ### Enlaces útiles:
 
-*   Descarga de assets: [https://drive.google.com/drive/folders/1-vD1Hu1Qd_oEGVYXBRwX6ZSBKu9Tffz7?usp=drive_link](https://drive.google.com/drive/folders/1-vD1Hu1Qd_oEGVYXBRwX6ZSBKu9Tffz7?usp=drive_link)
+
 *   Página de Steam: [https://store.steampowered.com/app/3596040/Time_Takers/](https://store.steampowered.com/app/3596040/Time_Takers/)
 *   Canal de Discord: [https://discord.gg/timetakers](https://discord.gg/timetakers)
 *   Página oficial: [http://timetakers.plaync.com](http://timetakers.plaync.com)
