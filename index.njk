@@ -50,13 +50,13 @@ layout: base.njk
 <!-- QUICK CATS -->
 <div class="cats-bar">
   <div class="cats-inner">
-    <a href="#" class="cat-btn"><span>🎮</span> Reseñas</a>
-    <a href="#" class="cat-btn"><span>👨‍👩‍👧</span> Para Padres</a>
-    <a href="#" class="cat-btn"><span>🏆</span> Esports</a>
-    <a href="#" class="cat-btn"><span>🎙️</span> Podcast</a>
-    <a href="#" class="cat-btn"><span>📖</span> Guías</a>
-    <a href="#" class="cat-btn"><span>🤖</span> IA &amp; Tecnología</a>
-    <a href="#" class="cat-btn"><span>🇲🇽</span> Noticias MX</a>
+    <a href="/resenas/" class="cat-btn"><span>🎮</span> Reseñas</a>
+    <a href="/para-padres/" class="cat-btn"><span>👨‍👩‍👧</span> Para Padres</a>
+    <a href="/esports/" class="cat-btn"><span>🏆</span> Esports</a>
+    <a href="/#podcast" class="cat-btn"><span>🎙️</span> Podcast</a>
+    <a href="/guia/" class="cat-btn"><span>📖</span> Guías</a>
+    <a href="/noticias/" class="cat-btn"><span>🤖</span> IA &amp; Tecnología</a>
+    <a href="/noticias/" class="cat-btn"><span>🇲🇽</span> Noticias MX</a>
   </div>
 </div>
 
@@ -65,7 +65,7 @@ layout: base.njk
   <div class="section">
     <div class="sec-head">
       <h2 class="sec-title">Noticias Destacadas</h2>
-      <a href="/noticias" class="see-all">Ver todas →</a>
+      <a href="/noticias/" class="see-all">Ver todas →</a>
     </div>
     <div class="feat-grid">
       {% set ultimas_noticias = collections.noticias | reverse %}
@@ -109,7 +109,7 @@ layout: base.njk
   <div class="section">
     <div class="sec-head">
       <h2 class="sec-title">Reseñas</h2>
-      <a href="#" class="see-all">Ver todas →</a>
+      <a href="/resenas/" class="see-all">Ver todas →</a>
     </div>
     <div class="rev-grid">
       {% set ultimas_resenas = collections.resenas | reverse %}
@@ -146,7 +146,7 @@ layout: base.njk
   <div class="section">
     <div class="sec-head">
       <h2 class="sec-title">Para Papás y Mamás</h2>
-      <a href="#" class="see-all">Ver todos →</a>
+      <a href="/para-padres/" class="see-all">Ver todos →</a>
     </div>
     <div class="padres-layout">
       <div class="tips">
@@ -198,7 +198,7 @@ layout: base.njk
   <div class="section">
     <div class="sec-head">
       <h2 class="sec-title">Esports</h2>
-      <a href="#" class="see-all">Ver torneos →</a>
+      <a href="/esports/" class="see-all">Ver torneos →</a>
     </div>
     <div class="esports-grid">
       <div class="esport-card">

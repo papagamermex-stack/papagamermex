@@ -1,0 +1,39 @@
+---
+layout: base.njk
+title: Para Papás y Mamás - Papá Gamer Mex
+pagination:
+  data: collections.para_padres
+  size: 12
+  alias: posts
+  reverse: true
+permalink: "para-padres/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+
+<section style="padding: 6rem 2rem 4rem; max-width: 1200px; margin: 0 auto; min-height: 70vh;">
+  <div class="sec-head">
+    <h1 class="sec-title">Para Papás y Mamás</h1>
+  </div>
+  
+  <div class="tips" style="margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+    {% for tip in posts %}
+      <a href="{{ tip.url }}" class="tip">
+        <div class="tip-ico {% if loop.index0 % 4 == 0 %}ico-c{% elif loop.index0 % 4 == 1 %}ico-p{% elif loop.index0 % 4 == 2 %}ico-t{% else %}ico-r{% endif %}">
+          {% if "Streaming" in tip.data.category or "App" in tip.data.title %}📱{% elif "Educativos" in tip.data.category %}🎓{% else %}🛡️{% endif %}
+        </div>
+        <div>
+          <h4 style="font-family:'Exo 2',sans-serif; font-weight:700; font-size:1rem; color:var(--white); margin-bottom:8px;">{{ tip.data.title }}</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55;">{{ tip.templateContent | striptags | truncate(120) }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div style="display: flex; gap: 1rem; justify-content: center;">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="btn-ghost">← Más recientes</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="btn-cyan">Más antiguas →</a>
+    {% endif %}
+  </div>
+</section>

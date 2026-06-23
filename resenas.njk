@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: Reseñas - Papá Gamer Mex
+pagination:
+  data: collections.resenas
+  size: 12
+  alias: posts
+  reverse: true
+permalink: "resenas/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+---
+
+<section style="padding: 6rem 2rem 4rem; max-width: 1200px; margin: 0 auto; min-height: 70vh;">
+  <div class="sec-head">
+    <h1 class="sec-title">Todas las Reseñas</h1>
+  </div>
+  
+  <div class="rev-grid" style="margin-bottom: 3rem;">
+    {% for post in posts %}
+      <a href="{{ post.url }}" class="card">
+        <div class="card-img">
+          <img src="{{ post.data.image if post.data.image else 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&q=80' }}" alt="{{ post.data.title }}">
+          <span class="cat-tag tag-red">{{ post.data.genre | default("ANÁLISIS") | upper }}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{ post.data.title | replace("Reseña: ", "") | replace("Reseña de Película: ", "") }}</h3>
+          <div class="score-row">
+            <div class="bars">
+              <div class="bar"><div class="bar-fill" style="width:{{ (post.data.score | default(8)) * 10 }}%"></div></div>
+              <div class="bar-lbl">Gameplay · Historia · Técnico</div>
+            </div>
+            <div class="score-num s{{ (post.data.score | default(8)) | round(0, 'floor') }}">{{ post.data.score | default("8.0") }}</div>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div style="display: flex; gap: 1rem; justify-content: center;">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="btn-ghost">← Más recientes</a>
+    {% endif %}
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="btn-cyan">Más antiguas →</a>
+    {% endif %}
+  </div>
+</section>
