@@ -3,6 +3,7 @@ title: "Arc System Works une fuerzas por una buena causa con la venta benéfica 
 date: 2026-06-26T15:00:23.000Z
 author: Eduardo Díaz
 category: Noticias
+image: "/images/noticias/arc-system-works-venta-benefica-evo-collection-150023.jpg"
 ---
 
 ¡Qué onda, familia! Aquí Papá Gamer Mex reportándose con una noticia que nos pone a pensar más allá de los combos y las partidas.
