@@ -3,6 +3,7 @@ title: "EA SPORTS FC 27: ¡Primer vistazo a la jugabilidad y recompensas exclusi
 date: 2026-09-17T07:01:33.000Z
 author: Eduardo Díaz
 category: Noticias
+image: "/images/noticias/ea-sports-fc-27-primer-vistazo-jugabilidad-recompensas-070133.jpg"
 ---
 
 ¡Qué onda, familia! El universo de EA SPORTS FC™ nos trae noticias fresquitas y es que hoy mismo se transmitió el primer vistazo a la jugabilidad de EA SPORTS FC™ 27. Si son fans de las canchas virtuales, esto les va a interesar un buen.

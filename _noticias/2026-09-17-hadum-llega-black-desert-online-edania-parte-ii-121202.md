@@ -3,6 +3,7 @@ title: "¡Hadum ha llegado! Black Desert Online cierra su primer acto con Edania
 date: 2026-09-17T12:12:02.000Z
 author: Eduardo Díaz
 category: Noticias
+image: "/images/noticias/hadum-llega-black-desert-online-edania-parte-ii-121202.jpg"
 ---
 
 ¡Qué onda, familia! Soy Papá Gamer Mex, y hoy les traigo una noticia que seguro les va a volar la cabeza a los fans de los MMORPG.

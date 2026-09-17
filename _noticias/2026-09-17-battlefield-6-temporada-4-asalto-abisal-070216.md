@@ -3,6 +3,7 @@ title: "Battlefield 6: La Temporada 4 \"Asalto Abisal\" trae el evento \"Sepultu
 date: 2026-09-17T07:02:16.000Z
 author: Eduardo Díaz
 category: Noticias
+image: "/images/noticias/battlefield-6-temporada-4-asalto-abisal-070216.jpg"
 ---
 
 ¡Qué onda, familia!
